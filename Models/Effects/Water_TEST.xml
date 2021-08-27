@@ -18,7 +18,16 @@
 	<texture>smoke.png</texture>
 
 	<condition>
-		<property>controls/armament/trigger</property>
+		<and>
+			<property>controls/armament/trigger</property>
+			<not>
+				<property>controls/dropsystem</property>
+			</not>
+			<greater-than>
+				<property>payload/weight[2]/weight-lb</property>
+				<value>10</value>
+			</greater-than>
+		</and>
 	</condition>
 
 	<emissive>false</emissive>

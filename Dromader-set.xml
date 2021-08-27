@@ -149,6 +149,7 @@
 	<circuit-breakers>
 		<cabin-lights-pwr>false</cabin-lights-pwr>
 	</circuit-breakers>
+	<dropsystem type="bool">false</dropsystem>
 </controls>
 
 

@@ -233,6 +233,8 @@
   </tank>
 
  </propulsion>
+
+ <system file="water"/>
  
 <!-- *Controles* -->
  <flight_control name="FCS:Dromader">

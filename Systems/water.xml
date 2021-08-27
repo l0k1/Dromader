@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+
+
+<system name="wpst">
+
+
+	<channel name="Payloads">
+
+		<switch name="trash/watertrigger">
+			<default value="0"/>
+			<test logic="AND" value="-30">
+				/controls/armament/trigger gt 0.9
+				/controls/dropsystem eq 0
+				/payload/weight[2]/weight-lb gt 35
+			</test>
+			<output>systems/waterflow</output>
+		</switch>
+
+		<switch name="trash/pesttrigger">
+			<default value="0"/>
+			<test logic="AND" value="-2">
+				/controls/armament/trigger gt 0.9
+				/controls/dropsystem eq 1
+				/payload/weight[2]/weight-lb gt 3
+			</test>
+			<output>systems/pestflow</output>
+		</switch>
+
+		<summer name="trash/payloadweight">
+			<input>systems/waterflow</input>
+			<input>systems/pestflow</input>
+			<input>/payload/weight[2]/weight-lb</input>
+			<output>/payload/weight[2]/weight-lb</output>
+		</summer>
+
+	</channel>
+</system>
+

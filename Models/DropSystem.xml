@@ -19,7 +19,7 @@
 <model>
 	<path>Aircraft/Dromader/Models/Effects/Water_TEST.xml</path>
 </model>
-<!--
+
 <model>
 	<path>Aircraft/Dromader/Models/Effects/Pesticide_L01.xml</path>
 </model>
@@ -35,7 +35,6 @@
 <model>
 	<path>Aircraft/Dromader/Models/Effects/Pesticide_R02.xml</path>
 </model>
--->
 <model>
 	<path>Aircraft/Dromader/Models/Effects/MotorStartSmoke.xml</path>
 </model>
@@ -45,7 +44,12 @@
 	<object-name>Boom</object-name>
 	<object-name>Salida</object-name>
 	<object-name>Soporte</object-name>
-	<visible>false</visible>
+	<condition>
+		<equals>
+			<property>controls/dropsystem</property>
+			<value>true</value>
+		</equals>
+	</condition>
 </animation>
 
 </PropertyList>
