@@ -1,0 +1,345 @@
+<?xml version="1.0"?>
+<PropertyList>
+
+<sim>
+	<author>Pavel Cueto, Fernando Espinosa</author>
+	<description>PZL M18B Dromader</description>
+	<aircraft-version>31-02-2011</aircraft-version>
+	<status>early-production</status>
+	<flight-model>jsb</flight-model>
+	<aero>Dromader</aero>
+
+	<tags>
+		<tag>ga</tag>
+		<tag>1970s</tag>
+		<tag>1980s</tag>
+		<tag>1990s</tag>
+		<tag>2000s</tag>
+		<tag>2010s</tag>
+		<tag>tail-dragger</tag>
+		<tag>fixed-gear</tag>
+		<tag>piston</tag>
+		<tag>radial</tag>
+		<tag>single-engine</tag>
+	</tags>
+
+	<rating>
+		<FDM type="int">3</FDM>
+		<systems type="int">2</systems>
+		<cockpit type="int">4</cockpit>
+		<model type="int">4</model>
+	</rating>
+
+	<model>
+		<path archive="y">Aircraft/Dromader/Models/M18B_Dromader.xml</path>
+	</model>
+
+  	<model>
+		<path>Aircraft/Dromader/Models/M18B_Dromader.xml</path>
+		<livery>
+			<file type="string">Default</file>
+		</livery>
+	</model>
+
+<!-- Configuracion de la vista del piloto -->
+
+	<view>
+	<internal archive="y">true</internal>
+	<config>
+		<x-offset-m archive="y"> 0.00</x-offset-m>  <!-- Lateral -->
+		<y-offset-m archive="y"> 1.53</y-offset-m>  <!-- Altura -->
+		<z-offset-m archive="y"> 2.23</z-offset-m>  <!-- Profundidad -->
+		<default-field-of-view-deg>60</default-field-of-view-deg>
+		<pitch-offset-deg>-15</pitch-offset-deg>
+	</config>
+	</view>
+
+	<startup>
+		<splash-texture>Aircraft/Dromader/splash.png</splash-texture>
+	</startup>
+
+	<sound>
+		<path archive="y">Aircraft/Dromader/Sounds/Dromader-Sound.xml</path>
+	</sound>
+
+<help>
+	<title>PZL-Mielec M18B "Dromader"</title>
+	<line></line>
+	<key>
+		<name>e</name>
+		<desc>Water drop/Pesticide dust</desc>
+	</key>
+	<key>
+		<name>{ }</name>
+		<desc>Magnetos ON/OFF</desc>
+	</key>
+	<key>
+		<name>S</name>
+		<desc>Starter</desc>
+	</key>
+	<key>
+		<name>d</name>
+		<desc>Open/Close Left-front door</desc>
+	</key>
+	<key>
+		<name>D</name>
+		<desc>Open/Close right-front door</desc>
+	</key>
+	<key>
+		<name>Ctrl-D</name>
+		<desc>Open/Close rear door</desc>
+	</key>
+	<line> Aircraft limits</line>
+	<line>____________________________________________</line>
+	<line> Normal category (Clean configuration)</line>
+	<line>      Load factor ..................... +3.4G; -1.4G</line>
+	<line>      VNE .................................. 148 KIAS</line>
+	<line>      VNO .................................. 121 KIAS</line>
+	<line></line>
+	<line> Restricted category (Cropduster/Firefighter conf.)</line>
+	<line>      Load factor ..................... +2.8G; -1.1G</line>
+	<line>      VNE .................................. 121 KIAS</line>
+	<line>      VNO .................................. 104 KIAS</line>
+	<line></line>
+	<line>      VA .................................... 120 KIAS</line>
+	<line>      VFE .................................. 104 KIAS</line>
+	<line>      Cruise ............................... 90-103 KIAS</line>
+	<line>      Stall .................................. 65 KIAS (estimated)</line>
+	<line></line>
+	<line>      Max takeoff weight (MTOW) ..... 11904 lb</line>
+	<line>      Max landing weight ..................... 9200 lb</line>
+	<line>____________________________________________</line>
+	<line>      Takeoff ............................. Flaps 15'</line>
+	<line>      Landing ............................ Flaps 30'</line>
+	<line>____________________________________________</line>
+	<line>      www.vivefg.org</line>
+</help>
+
+<menubar include="Dialogs/Dromader-menu.xml"/>
+
+  <flaps>
+   <setting>0.000</setting>
+   <setting>0.475</setting> 
+   <setting>0.950</setting> 
+  </flaps>
+
+</sim>
+    
+<controls>
+	<flight>
+		<aileron-trim>0.0025</aileron-trim>   
+		<elevator-trim>0.00</elevator-trim> 
+		<rudder-trim>0.075</rudder-trim>
+	</flight>
+	<gear>
+		<brake-parking>1</brake-parking>
+		<brake-left>0</brake-left>
+		<brake-right>0</brake-right>
+	</gear>	
+	<door>0</door>
+	<door>0</door>
+	<door>0</door>
+	<lighting>
+		<strobe>0</strobe>
+		<beacon>0</beacon>
+		<nav-lights>0</nav-lights>
+		<landing-lights>0</landing-lights>
+		<instruments-norm>0</instruments-norm>
+	</lighting>
+	<circuit-breakers>
+		<cabin-lights-pwr>false</cabin-lights-pwr>
+	</circuit-breakers>
+</controls>
+
+
+
+
+<nasal>
+	<Dromader>
+		<file>Aircraft/Dromader/Nasal/liveries.nas</file>
+		<file>Aircraft/Dromader/Nasal/limits.nas</file>
+		<file>Aircraft/Dromader/Nasal/immat.nas</file>
+		<file>Aircraft/Dromader/Nasal/light.nas</file>
+	</Dromader>
+</nasal>
+
+<limits>
+	<max-flap-extension-speed>
+<!--		<flaps>0.20</flaps> -->
+		<speed>104</speed>
+	</max-flap-extension-speed>
+<!--	<max-flap-extension-speed>
+		<flaps>0.60</flaps>
+		<speed>115</speed>
+	</max-flap-extension-speed>
+	<max-flap-extension-speed>
+		<flaps>0.99</flaps>
+		<speed>104</speed> 
+	</max-flap-extension-speed>
+	<max-gear-extension-speed>129</max-gear-extension-speed> -->
+	<vne>121</vne>
+	<max-positive-g>2.8</max-positive-g>
+	<max-negative-g>-1.1</max-negative-g>
+</limits>
+
+<payload>
+	<weight>
+		<name type="string">Pilot</name>
+		<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[0]"/>
+		<min-lb type="double">0.0</min-lb>
+		<max-lb type="double">300.0</max-lb>
+	</weight>
+	<weight>
+		<name type="string">Baggage</name>
+		<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[1]"/>
+		<min-lb type="double">0.0</min-lb>
+		<max-lb type="double">66.0</max-lb>
+	</weight>
+	<weight>
+		<name type="string">Water-Pesticide</name>
+		<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[2]"/>
+		<min-lb type="double">0.0</min-lb>
+		<max-lb type="double">4800</max-lb>
+	</weight>
+</payload> 
+
+<input>
+<keyboard>
+		
+	<!-- Frenos independientes -->
+	
+	<key n="44">
+		<name>,</name>
+			<desc>brake-left</desc>
+		<binding>
+			<command>nasal</command>
+			<script>
+			if(getprop("controls/gear/brake-left") > 1) {
+				interpolate("controls/gear/brake-left", 0, 1);
+				} else {
+				interpolate("controls/gear/brake-left", 1, 1);
+			}
+			</script>
+		</binding>
+	</key>
+	
+	<key n="46">
+		<name>.</name>
+			<desc>brake-right</desc>
+		<binding>
+			<command>nasal</command>
+			<script>
+			if(getprop("controls/gear/brake-right") > 1) {
+				interpolate("controls/gear/brake-right", 0, 1);
+				} else {
+				interpolate("controls/gear/brake-right", 1, 1);
+			}
+			</script>
+		</binding>
+	</key>
+	
+<!-- Puertas -->
+
+	<key n="100">
+		<name>d</name>
+			<desc>Open/Close door Izq</desc>
+		<binding>
+			<command>nasal</command>
+			<script>
+			if(getprop("controls/door[0]") > 0) {
+				interpolate("controls/door[0]", 0, 1);
+				} else {
+				interpolate("controls/door[0]", 1, 1);
+			}
+			</script>
+		</binding>
+	</key>
+	
+	<key n="68">
+		<name>D</name>
+			<desc>Open/Close door Dcha</desc>
+		<binding>
+			<command>nasal</command>
+			<script>
+			if(getprop("controls/door[1]") > 0) {
+				interpolate("controls/door[1]", 0, 1);
+				} else {
+				interpolate("controls/door[1]", 1, 1);
+			}
+			</script>
+		</binding>
+	</key>
+	
+	<key n="4">
+		<name>Ctrl-D</name>
+			<desc>Open/Close door TrasIzq</desc>
+		<binding>
+			<command>nasal</command>
+			<script>
+			if(getprop("controls/door[2]") > 0) {
+				interpolate("controls/door[2]", 0, 1);
+				} else {
+				interpolate("controls/door[2]", 1, 1);
+			}
+			</script>
+		</binding>
+	</key>
+
+<!-- Pesticida -->
+<!--
+	<key n="101">
+		<name>e</name>
+			<desc>Pesticide Trigger</desc> 
+		<binding>
+			<command>property-assign</command>
+			<property>controls/armament/trigger</property>
+			<value>true</value>
+		</binding>
+		<mod-up>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/armament/trigger</property>
+				<value>false</value>
+			</binding> 
+		</mod-up>
+	</key>
+-->
+
+<!-- Agua -->
+	<key n="101">
+		<name>e</name>
+			<desc>WaterDrop</desc> 
+		<binding>
+			<command>property-assign</command>
+			<property>controls/armament/trigger</property>
+			<value>true</value>
+		</binding>
+		<binding>
+			<command>property-assign</command>
+			<property>fdm/jsbsim/inertia/pointmass-weight-lbs[2]</property>
+			<value>0</value>
+		</binding>
+		<mod-up>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/armament/trigger</property>
+				<value>false</value>
+			</binding> 
+		</mod-up>
+	</key>
+
+</keyboard>
+</input>
+
+<fdm>
+	<jsbsim>
+		<ice>
+		<wing type="double">0.0</wing>
+		<stabilizer type="double">0.0</stabilizer>
+		<propeller type="double">0.0</propeller>
+		<fuselage type="double">0.0</fuselage>
+		</ice>
+	</jsbsim>
+</fdm>
+
+</PropertyList>

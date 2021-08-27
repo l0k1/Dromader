@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<PropertyList>
+
+<!--
+Flaps position indicator, based on Dromader's original instrument
+Author: Pavel Cueto
+License: GPL
+-->
+
+	<path>FLP-47-III.ac</path>
+
+<animation>
+	<object-name>Aguja</object-name>
+	<object-name>Fondo</object-name>
+	<object-name>Base</object-name>
+	<object-name>Cristal</object-name>
+	<object-name>Tornillos</object-name>
+</animation>
+<!--
+<animation>
+	<type>shader</type>
+	<shader>chrome</shader>
+	<texture>Aircraft/Generic/Effects/glass_shader.png</texture>
+	<object-name>Cristal</object-name>
+</animation>
+-->
+<animation>
+	<type>noshadow</type>
+	<object-name>Cristal</object-name>
+</animation>
+
+<animation>
+	<type>material</type>
+	<object-name>Aguja</object-name>
+	<object-name>Fondo</object-name>
+	<emission>
+		<red>  0.7</red>
+		<green>0.7</green>
+		<blue> 0.7</blue>
+			<factor-prop>controls/lighting/instruments-norm</factor-prop>
+	</emission>
+</animation>
+
+<animation>
+	<type>rotate</type>
+	<object-name>Aguja</object-name>
+	<property>surface-positions/flap-pos-norm</property>
+		<interpolation>
+            <entry><ind> 0   </ind><dep> 0 </dep></entry>
+            <entry><ind> 0.5 </ind><dep> 60 </dep></entry>
+            <entry><ind> 1 </ind><dep> 120 </dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1.0</x>
+			<y>0.0</y>
+			<z>0.0</z>
+		</axis>
+    </animation>
+
+</PropertyList>

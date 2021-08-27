@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+ <path>P1000.ac</path>
+
+<animation>
+	<object-name>Base</object-name>
+	<object-name>Fondo</object-name>
+	<object-name>Tornillos</object-name>
+	<object-name>LCD</object-name>
+	<object-name>LCD0</object-name>
+	<object-name>LCD1</object-name>
+	<object-name>LCD2</object-name>
+	<object-name>LCD3</object-name>
+	<object-name>LCD4</object-name>
+	<object-name>Luz1</object-name>
+	<object-name>Luz2</object-name>
+	<object-name>Luz3</object-name>
+	<object-name>Btn1</object-name>
+	<object-name>Btn2</object-name>
+	<object-name>Btn3</object-name>
+</animation>
+
+<animation>
+	<type>noshadow</type>
+	<object-name>LCD</object-name>
+	<object-name>LCD0</object-name>
+	<object-name>LCD1</object-name>
+	<object-name>LCD2</object-name>
+	<object-name>LCD3</object-name>
+	<object-name>LCD4</object-name>
+</animation>
+
+ <animation>
+	<type>select</type>
+	<object-name>LCD0</object-name>
+	<condition>
+		<not>
+		<or>
+			<property>controls/electric/battery-switch</property>
+			<property>controls/electric/external-power</property>
+			<property>controls/electric/engine/generator</property>
+		</or>
+		</not>
+	</condition>
+<!--	<visible>false</visible> -->
+ </animation>
+ 
+  <animation>
+	<type>select</type>
+	<object-name>LCD1</object-name>
+	<object-name>LCD2</object-name>
+	<object-name>LCD3</object-name>
+	<object-name>LCD4</object-name>
+	<condition>
+		<or>
+			<property>controls/electric/battery-switch</property>
+			<property>controls/electric/external-power</property>
+			<property>controls/electric/engine/generator</property>
+		</or>
+	</condition>
+<!--	<visible>true</visible> -->
+ </animation>
+
+<animation>
+	<type>material</type>
+	<object-name>Face</object-name>
+	<object-name>LCD</object-name>
+	<object-name>LCD1</object-name>
+	<object-name>LCD2</object-name>
+	<object-name>LCD3</object-name>
+	<object-name>LCD4</object-name>
+	<emission>
+		<red>0.7</red>
+		<green>0.7</green>
+		<blue>0.7</blue>
+		<factor-prop>/controls/lighting/instruments-norm</factor-prop>
+	</emission>
+</animation>
+
+<animation>
+	<type>textranslate</type>
+	<object-name>LCD1</object-name>
+    <property>engines/engine[0]/rpm</property>
+		<factor>0.0001</factor>
+		<step>1000</step>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+        </axis>
+</animation>
+
+<animation>
+	<type>textranslate</type>
+	<object-name>LCD2</object-name>
+    <property>engines/engine[0]/rpm</property>
+		<factor>0.001</factor>
+		<step>100</step>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+        </axis>
+</animation>
+
+<animation>
+	<type>textranslate</type>
+	<object-name>LCD3</object-name>
+    <property>engines/engine[0]/rpm</property>
+        <factor>0.01</factor>
+        <step>10</step>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+        </axis>
+</animation>
+
+<animation>
+	<type>textranslate</type>
+	<object-name>LCD4</object-name>
+    <property>engines/engine[0]/rpm</property>
+		<factor>0.1</factor>
+		<step>1</step>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+        </axis>
+</animation>
+
+<!-- Animacion luz verde -->
+<animation>
+	<type>material</type>
+	<object-name>Luz4</object-name>
+	<emission>	
+		<red>0</red>	
+		<green>1</green>	
+		<blue>0</blue>
+	</emission>
+</animation>
+
+<animation>
+	<type>select</type>
+	<object-name>Luz4</object-name>
+	<condition>
+		<greater-than>
+			<property>engines/engine[0]/rpm</property>
+			<value>550</value>
+		</greater-than>
+		<not>
+			<greater-than>
+				<property>engines/engine[0]/rpm</property>
+				<value>2099</value>
+			</greater-than>
+		</not>
+	</condition>
+</animation>
+
+<animation>
+	<type>select</type>
+	<object-name>LED4</object-name>
+	<condition>
+		<or>
+		<less-than>
+			<property>engines/engine[0]/rpm</property>
+			<value>550</value>
+		</less-than>
+		<greater-than>
+			<property>engines/engine[0]/rpm</property>
+			<value>2099</value>
+		</greater-than>
+		</or>
+	</condition>
+</animation>
+
+<!-- Animacion luz amarilla -->
+<animation>
+	<type>material</type>
+	<object-name>Luz5</object-name>
+	<emission>	
+		<red>1</red>	
+		<green>1</green>	
+		<blue>0</blue>
+	</emission>
+</animation>
+
+<animation>
+	<type>select</type>
+	<object-name>Luz5</object-name>
+	<condition>
+		<greater-than>
+			<property>engines/engine[0]/rpm</property>
+			<value>2099</value>
+		</greater-than>
+		<not>
+			<greater-than>
+				<property>engines/engine[0]/rpm</property>
+				<value>2199</value>
+			</greater-than>
+		</not>
+	</condition>
+</animation>
+
+<animation>
+	<type>select</type>
+	<object-name>LED5</object-name>
+	<condition>
+		<or>
+		<less-than>
+			<property>engines/engine[0]/rpm</property>
+			<value>2099</value>
+		</less-than>
+		<greater-than>
+			<property>engines/engine[0]/rpm</property>
+			<value>2199</value>
+		</greater-than>
+		</or>
+	</condition>
+</animation>
+
+<!-- Animacion luz roja -->
+<animation>
+	<type>material</type>
+	<object-name>Luz6</object-name>
+	<emission>	
+		<red>1</red>	
+		<green>0</green>	
+		<blue>0</blue>
+	</emission>
+</animation>
+
+<animation>
+	<type>select</type>
+	<object-name>Luz6</object-name>
+	<condition>
+	<and>
+<!--	<or>
+			<property>controls/electric/battery-switch</property>
+			<property>controls/electric/external-power</property>
+			<property>controls/electric/engine/generator</property>
+		</or> -->
+		<or>
+		<less-than>
+			<property>engines/engine[0]/rpm</property>
+			<value>549</value>
+		</less-than>
+		<greater-than>
+				<property>engines/engine[0]/rpm</property>
+				<value>2199</value>
+		</greater-than>
+		</or>
+	</and>
+	</condition>
+</animation>
+
+<animation>
+	<type>select</type>
+	<object-name>LED6</object-name>
+	<condition>
+		<and>
+		<greater-than>
+			<property>engines/engine[0]/rpm</property>
+			<value>549</value>
+		</greater-than>
+		<less-than>
+				<property>engines/engine[0]/rpm</property>
+				<value>2199</value>
+		</less-than>
+		</and>
+	</condition>
+</animation>
+
+</PropertyList>

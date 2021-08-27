@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+  File:     Asz-62IRM18.xml
+  Author:   Aero-Matic v 0.81
+
+  Inputs:
+    name:           Asz-62IRM18
+    type:           piston
+    power:          967.0 hp
+    augmented?      yes
+    injected?       no
+-->
+
+<piston_engine name="Asz-62IRM18">
+  <minmp unit="INHG">         5  </minmp><!-- Deprecated -->
+  <maxmp unit="INHG">         29.9 </maxmp><!-- Deprecated -->
+  <displacement unit="IN3">  1837.30 </displacement>
+<!-- Definir el valor de <bsfc> **consumo combustible**a partir de las revoluciones maximas <maxhp> -->
+  <!--<bsfc>           0.45 </bsfc>-->
+  <maxhp>       967.00 </maxhp>
+  <cycles>         4.0 </cycles>
+  <idlerpm>      500.0 </idlerpm>
+  <maxrpm>      2200.0 </maxrpm>
+  <maxthrottle>    1.0 </maxthrottle>
+  <minthrottle>    0.2 </minthrottle>
+  <sparkfaildrop>  0.0 </sparkfaildrop>
+</piston_engine>

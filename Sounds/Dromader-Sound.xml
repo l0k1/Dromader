@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<PropertyList>
+<fx>
+
+<!-- *****************************
+	    Motor (Engine)
+****************************** -->
+
+	<crank>
+		<name>engstart</name>
+		<path>Sounds/engstart.wav</path>
+			<property>/engines/engine/cranking</property>
+		<volume>
+			<offset>0.4</offset>
+		</volume>
+		<reference-dist>100</reference-dist>
+	<max-dist>1000</max-dist>
+	</crank>
+
+	<crank>
+		<name>crank</name>
+		<mode>looped</mode>
+		<path>Sounds/cranking.wav</path>
+		<condition>
+			<property>/engines/engine/cranking</property>
+			<not>
+				<property>/engines/engine/running</property>
+			</not>
+		</condition>
+		<volume>
+			<offset>0.4</offset>
+		</volume>
+		<reference-dist>100</reference-dist>
+		<max-dist>1000</max-dist>
+	</crank>
+
+	<crank>
+		<name>cough</name>
+		<path>Sounds/coughing.wav</path>
+			<property>/engines/engine/running</property>
+		<volume>
+			<offset>0.3</offset>
+		</volume>
+		<reference-dist>100</reference-dist>
+		<max-dist>1000</max-dist>
+	</crank>
+
+	<engine>
+		<name>engine</name>
+		<mode>looped</mode>
+		<path>Aircraft/Dromader/Sounds/ASZ-62IRM18int.wav</path>
+			<property>/engines/engine/running</property>
+		<volume>
+			<property>/sim/current-view/internal</property>
+				<offset>1.0</offset>
+				<factor>-0.5</factor>
+		</volume>
+		<pitch>
+			<property>/engines/engine/rpm</property>
+				<factor>0.0006</factor>
+				<min>0.6</min>
+				<max>1.1</max>
+				<offset>0.3</offset>
+		</pitch>
+		<reference-dist>100</reference-dist>
+		<max-dist>1000</max-dist>
+	</engine>
+
+	<propeller>
+		<name>propeller</name>
+		<mode>looped</mode>
+		<path>Aircraft/Dromader/Sounds/ASZ-62IRM18ext.wav</path>
+			<property>/engines/engine/running</property>
+		<volume>
+			<property>/orientation/alpha-deg</property>
+			<type>log</type>
+			<min>0.6</min>
+			<max>1.0</max>
+		</volume>
+		<volume>
+			<property>/sim/current-view/internal</property>
+			<factor>0.5</factor>
+		</volume>
+		<pitch>
+			<property>/engines/engine/mp-osi</property>
+			<factor>0.0036</factor>
+			<min>0.5</min>
+			<max>2.0</max>
+			<offset>0.3</offset>
+		</pitch>
+		<reference-dist>100</reference-dist>
+		<max-dist>1000</max-dist>
+	</propeller>
+
+<!-- *****************************
+	 Controles (Controls)
+****************************** -->
+
+	<flap>
+		<name>Flaps</name>
+		<mode>in-transit</mode>
+		<path>Aircraft/Dromader/Sounds/Cessna150Flaps.wav</path>
+			<property>surface-positions/flap-pos-norm</property>
+		<volume>
+			<factor>0.8</factor>
+		</volume>
+	</flap>
+
+	<rudder>
+		<name>Rudder pedals noise L</name>
+		<path>Aircraft/Dromader/Sounds/RudderPedalNoise.wav</path>
+		<condition>
+			<less-than>
+				<property>controls/flight/rudder</property>
+				<value>-0.25</value>
+			</less-than>
+		</condition>
+		<volume>
+			<factor>0.75</factor>
+		</volume>
+	</rudder>
+
+	<rudder>
+		<name>Rudder pedals noise R</name>
+		<path>Aircraft/Dromader/Sounds/RudderPedalNoise.wav</path>
+		<condition>
+			<greater-than>
+				<property>controls/flight/rudder</property>
+				<value>0.25</value>
+			</greater-than>
+		</condition>
+		<volume>
+			<factor>0.75</factor>
+		</volume>
+	</rudder>
+
+<!-- *****************************
+	    Ruedas (Wheels)
+****************************** -->
+
+	<rumble>
+		<name>rumble</name>
+		<mode>looped</mode>
+		<path>Sounds/rumble.wav</path>
+		<condition>
+			<or>
+			<property>/gear/gear[0]/wow</property>
+			<property>/gear/gear[1]/wow</property>
+			<property>/gear/gear[2]/wow</property>
+			</or>
+		</condition>
+		<volume>
+			<property>/velocities/airspeed-kt</property>
+			<type>log</type>
+			<factor>0.25</factor>
+		</volume>
+		<reference-dist>100</reference-dist>
+		<max-dist>1000</max-dist>
+	</rumble>
+
+	<squeal>
+		<name>squeal</name>
+		<path>Sounds/squeal.wav</path>
+		<condition>
+			<or>
+			<property>/gear/gear[0]/wow</property>
+			<property>/gear/gear[1]/wow</property>
+			<property>/gear/gear[2]/wow</property>
+			</or>
+		</condition>
+		<volume>
+			<property>/velocities/speed-down-fps</property>
+			<factor>0.5</factor>
+			<max>1.0</max>
+		</volume>
+		<volume>
+			<property>/velocities/airspeed-kt</property>
+			<factor>0.01</factor>
+			<max>1.0</max>
+		</volume>
+		<volume>
+			<internal>dt_stop</internal>
+			<factor>0.05</factor>
+			<max>1.0</max>
+		</volume>
+		<pitch>
+			<property>/velocities/airspeed-kt</property>
+			<factor>0.0025</factor>
+			<offset>1.2</offset>
+		</pitch>
+		<reference-dist>100</reference-dist>
+		<max-dist>1000</max-dist>
+	</squeal>
+
+<!-- *****************************
+	   Puertas (Doors)
+****************************** -->
+
+<!-- Puerta delantera izquierda -->
+
+	<door>
+		<name>Left front door Open</name>
+		<path>Aircraft/Dromader/Sounds/DoorOpen.wav</path>
+		<condition>
+			<greater-than>
+				<property>controls/door</property>
+				<value>0.1</value>
+			</greater-than>
+		</condition>
+		<volume>
+			<factor>1</factor>
+		</volume>
+	</door>
+	<door>
+		<name>Left front door Close</name>
+		<path>Aircraft/Dromader/Sounds/DoorClosed.wav</path>
+		<condition>
+			<equals>
+				<property>controls/door</property>
+				<value>0</value>
+			</equals>
+		</condition>
+		<volume>
+			<factor>1</factor>
+		</volume>
+	</door>
+
+<!-- Puerta delantera derecha -->
+
+	<door>
+		<name>Right front door Open</name>
+		<path>Aircraft/Dromader/Sounds/DoorOpen.wav</path>
+		<condition>
+			<greater-than>
+				<property>controls/door[1]</property>
+				<value>0.1</value>
+			</greater-than>
+		</condition>
+		<volume>
+			<factor>1</factor>
+		</volume>
+	</door>
+	<door>
+		<name>Right front door Close</name>
+		<path>Aircraft/Dromader/Sounds/DoorClosed.wav</path>
+		<condition>
+			<equals>
+				<property>controls/door[1]</property>
+				<value>0</value>
+			</equals>
+		</condition>
+		<volume>
+			<factor>1</factor>
+		</volume>
+	</door>
+
+<!-- Puerta trasera -->
+
+	<door>
+		<name>Rear door Open</name>
+		<path>Aircraft/Dromader/Sounds/DoorOpen.wav</path>
+		<condition>
+			<greater-than>
+				<property>controls/door[2]</property>
+				<value>0.1</value>
+			</greater-than>
+		</condition>
+		<volume>
+			<factor>1</factor>
+		</volume>
+	</door>
+	<door>
+		<name>Rear door Close</name>
+		<path>Aircraft/Dromader/Sounds/DoorClosed.wav</path>
+		<condition>
+			<equals>
+				<property>controls/door[2]</property>
+				<value>0</value>
+			</equals>
+		</condition>
+		<volume>
+			<factor>1</factor>
+		</volume>
+	</door>
+
+<!-- *****************************
+	   Botones (Buttons)
+****************************** -->
+
+	<click> 
+		<name>Magnetos-off</name>
+		<path>Aircraft/Dromader/Sounds/ButtonPower.wav</path>
+		<condition>
+			<not>
+				<property>controls/engines/engine/magnetos</property>
+			</not>
+		</condition>
+		<volume> 
+			<factor>1.0</factor>
+		</volume>
+	</click>
+
+	<click> 
+		<name>Magnetos-R</name>
+		<path>Aircraft/Dromader/Sounds/ButtonPower.wav</path>
+		<condition>
+			<equals>
+				<property>controls/engines/engine/magnetos</property>
+				<value>1</value>
+			</equals>
+		</condition>
+		<volume> 
+			<factor>1.0</factor>
+		</volume>
+	</click>
+
+	<click> 
+		<name>Magnetos-L</name>
+		<path>Aircraft/Dromader/Sounds/ButtonPower.wav</path>
+		<condition>
+			<equals>
+				<property>controls/engines/engine/magnetos</property>
+				<value>2</value>
+			</equals>
+		</condition>
+		<volume> 
+			<factor>1.0</factor>
+		</volume>
+	</click>
+
+	<click> 
+		<name>Magnetos-B</name>
+		<path>Aircraft/Dromader/Sounds/ButtonPower.wav</path>
+		<condition>
+			<equals>
+				<property>controls/engines/engine/magnetos</property>
+				<value>3</value>
+			</equals>
+		</condition>
+		<volume> 
+			<factor>1.0</factor>
+		</volume>
+	</click>
+
+	<click> 
+		<name>Flaps Button Pos 0</name>
+		<path>Aircraft/Dromader/Sounds/ButtonFlaps.wav</path>
+		<condition>
+			<equals>
+				<property>controls/flight/flaps</property>
+				<value>0</value>
+			</equals>
+		</condition>
+		<volume> 
+			<factor>1.0</factor>
+		</volume>
+	</click>
+
+	<click> 
+		<name>Flaps Button Pos 1</name>
+		<path>Aircraft/Dromader/Sounds/ButtonFlaps.wav</path>
+		<condition>
+			<equals>
+				<property>controls/flight/flaps</property>
+				<value>0.475</value>
+			</equals>
+		</condition>
+		<volume> 
+			<factor>1.0</factor>
+		</volume>
+	</click>
+
+	<click> 
+		<name>Flaps Button Pos 2</name>
+		<path>Aircraft/Dromader/Sounds/ButtonFlaps.wav</path>
+		<condition>
+			<equals>
+				<property>controls/flight/flaps</property>
+				<value>0.95</value>
+			</equals>
+		</condition>
+		<volume> 
+			<factor>1.0</factor>
+		</volume>
+	</click>
+
+<!-- *****************************
+       Ambientes (Ambience)
+****************************** -->
+
+	<wind>
+		<name>wind</name>
+		<mode>looped</mode>
+			<path>Sounds/wind.wav</path>
+			<property>/velocities/airspeed-kt</property>
+		<volume>
+			<property>/position/altitude-ft</property>
+			<factor>-0.000015</factor>
+			<offset>1.0</offset>
+			<min>0.1</min>
+			<max>1.0</max>
+		</volume>
+		<volume>
+			<property>/velocities/airspeed-kt</property>
+			<factor>0.0015</factor>
+			<min>0.03</min>
+			<max>0.25</max>
+		</volume>
+		<pitch>
+			<property>/velocities/airspeed-kt</property>
+			<factor>0.0035</factor>
+			<offset>1.25</offset>
+		</pitch>
+		<reference-dist>100</reference-dist>
+		<max-dist>1000</max-dist>
+	</wind>
+
+<!-- *****************************
+	  SONIDOS EN DESUSO
+****************************** -->
+
+<!--
+    <stall>
+      <name>stall</name>
+      <mode>looped</mode>
+      <path>Sounds/stall.wav</path>
+      <condition>
+        <and>
+          <property>/sim/alarms/stall-warning</property>
+          <greater-than>
+            <property>/velocities/airspeed-kt</property>
+            <value>10</value>
+          </greater-than>
+          <not>
+            <property>/gear/gear[0]/wow</property>
+            <property>/gear/gear[1]/wow</property>
+            <property>/gear/gear[2]/wow</property>
+          </not>
+        </and>
+      </condition>
+      <volume>
+        <property>/sim/alarms/stall-warning</property>
+        <max>1.0</max>
+      </volume>
+      <reference-dist>10.0</reference-dist>
+      <max-dist>20.0</max-dist>
+    </stall>
+
+    <click> 
+      <name>Strobe Lights On</name>
+      <path>Sounds/click.wav</path>
+      <condition> 
+        <property>controls/switches/strobe-lights</property>
+      </condition>
+      <volume> 
+        <factor>1.0</factor>
+      </volume>
+    </click>
+
+    <click> 
+      <name>Strobe Lights Off</name>
+      <path>Sounds/click.wav</path>
+      <condition>
+        <not> 
+          <property>controls/switches/strobe-lights</property>
+        </not>
+      </condition>
+      <volume> 
+        <factor>1.0</factor>
+      </volume>
+    </click>
+
+    <click> 
+      <name>Avionics Master On</name>
+      <path>Sounds/click.wav</path>
+      <condition>
+        <property>controls/switches/master-avionics</property>
+      </condition>
+      <volume> 
+        <factor>1.0</factor>
+     </volume>
+    </click>
+ 
+    <click> 
+      <name>Avionics Master Off</name>
+      <path>Sounds/click.wav</path>
+      <condition>
+        <not>
+          <property>controls/switches/master-avionics</property>
+        </not>
+      </condition>
+      <volume> 
+        <factor>1.0</factor>
+      </volume>
+    </click>
+
+    <click> 
+      <name>Nav Light On</name>
+      <path>Sounds/click.wav</path>
+      <condition>
+        <property>controls/switches/nav-lights</property>
+      </condition>
+      <volume> 
+        <factor>1.0</factor>
+      </volume>
+    </click>
+
+    <click> 
+      <name>Nav Light Off</name>
+      <path>Sounds/click.wav</path>
+      <condition>
+        <not>
+          <property>controls/switches/nav-lights</property>
+        </not>
+      </condition>
+      <volume> 
+        <factor>1.0</factor>
+      </volume>
+    </click>
+ 
+    <click>
+      <name>Landing Light On</name>
+      <path>Sounds/click.wav</path>
+      <condition>
+        <property>controls/switches/landing-light</property>
+      </condition>
+      <volume>
+        <factor>1.0</factor>
+      </volume>
+    </click>
+      
+    <click>
+      <name>Landing Light Off</name>
+      <path>Sounds/click.wav</path>
+      <condition>
+        <not>
+          <property>controls/switches/landing-light</property>
+        </not>
+      </condition>
+      <volume>
+        <factor>1.0</factor>
+      </volume>
+    </click>
+
+    <click>
+      <name>Smoke On</name>
+      <path>Sounds/click.wav</path>
+      <condition>
+        <property>controls/smoke</property>
+      </condition>
+      <volume>
+        <factor>1.0</factor>
+      </volume>
+    </click>
+
+    <click>
+      <name>Smoke Off</name>
+      <path>Sounds/click.wav</path>
+      <condition>
+        <not>
+          <property>controls/smoke</property>
+        </not>
+      </condition>
+      <volume>
+        <factor>1.0</factor>
+      </volume>
+    </click>
+
+-->
+
+</fx>
+</PropertyList>

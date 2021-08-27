@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+Altimeter based on PZL PW-12-F model
+http://www.pzl.com.pl/en/produkty/osprzet_lotniczy/pilotazowo-nawigacyjne/wysokosciomierze/pw-12-f.html
+Author: Pavel Cueto
+License: GPL
+-->
+
+<PropertyList>
+
+	<path>PW-12-F.ac</path>
+
+<animation>
+	<object-name>Fondo1</object-name>
+	<object-name>Fondo2</object-name>
+	<object-name>Aguja1</object-name>
+	<object-name>Aguja2</object-name>
+	<object-name>Eje</object-name>
+	<object-name>Perilla</object-name>
+	<object-name>Base</object-name>
+	<object-name>Cristal</object-name>
+	<object-name>Tornillos</object-name>
+</animation>
+
+<animation>
+	<type>noshadow</type>
+	<object-name>Cristal</object-name>
+</animation>
+<!--
+<animation>
+	<type>shader</type>
+	<shader>chrome</shader>
+	<texture>glass.png</texture>
+</animation>
+-->
+<animation>
+	<type>material</type>
+	<object-name>Aguja1</object-name>
+	<object-name>Aguja2</object-name>
+	<object-name>Fondo1</object-name>
+	<object-name>Fondo2</object-name>
+	<emission>
+		<red>  0.7</red>
+		<green>0.7</green>
+		<blue> 0.7</blue>
+			<factor-prop>controls/lighting/instruments-norm</factor-prop>
+	</emission>
+</animation>
+
+<animation>
+	<type>rotate</type>
+	<object-name>Aguja1</object-name>
+	<property>instrumentation/altimeter/indicated-altitude-ft</property>
+	<interpolation>
+		<entry><ind> 0     </ind><dep>    0 </dep></entry>
+		<entry><ind> 1500  </ind><dep>  180 </dep></entry>
+		<entry><ind> 3000  </ind><dep>  360 </dep></entry>
+		<entry><ind> 6000  </ind><dep>  720 </dep></entry>
+		<entry><ind> 9000  </ind><dep> 1080 </dep></entry>
+		<entry><ind> 12000 </ind><dep> 1440 </dep></entry>
+		<entry><ind> 15000 </ind><dep> 1800 </dep></entry>
+		<entry><ind> 18000 </ind><dep> 2160 </dep></entry>
+		<entry><ind> 21000 </ind><dep> 2520 </dep></entry>
+	</interpolation>
+	<center>
+		<x-m> 0.003 </x-m>
+		<y-m> 0 </y-m>
+		<z-m> 0 </z-m>
+	</center>
+	<axis>
+		<x>-1 </x>
+		<y> 0 </y>
+		<z> 0 </z>
+	</axis>
+</animation>
+
+<animation>
+	<type>rotate</type>
+	<object-name>Aguja2</object-name>
+	<property>instrumentation/altimeter/indicated-altitude-ft</property>
+	<interpolation>
+		<entry><ind> 0     </ind><dep>   0 </dep></entry>
+		<entry><ind> 21000 </ind><dep> 252 </dep></entry>
+	</interpolation>
+	<center>
+		<x-m> 0.002 </x-m>
+		<y-m> 0 </y-m>
+		<z-m> 0 </z-m>
+	</center>
+	<axis>
+		<x> -1 </x>
+		<y>  0 </y>
+		<z>  0 </z>
+	</axis>
+</animation>
+
+<animation>
+	<type>rotate</type>
+	<object-name>Fondo2</object-name>
+	<property>instrumentation/altimeter/setting-inhg</property>
+	<interpolation>
+		<entry><ind> 26.28 </ind><dep> 160 </dep></entry>
+		<entry><ind> 28.64 </ind><dep>   0 </dep></entry>
+		<entry><ind> 31.01 </ind><dep>-160 </dep></entry>
+	</interpolation>
+	<center>
+		<x-m> 0 </x-m>
+		<y-m> 0 </y-m>
+		<z-m> 0 </z-m>
+	</center>
+	<axis>
+		<x>-1 </x>
+		<y> 0 </y>
+		<z> 0 </z>
+	</axis>
+</animation>
+
+<animation>
+	<type>pick</type>
+	<object-name>Perilla</object-name>
+	<visible>true</visible>
+	<action>
+		<name>Calib up</name>
+		<button>0</button>
+		<repeatable>true</repeatable>
+		<binding>
+			<command>property-adjust</command>
+			<property>instrumentation/altimeter/setting-inhg</property>
+				<step> 0.01 </step>
+				<min> 26.28 </min>
+				<max> 31.01 </max>
+			<wrap>false</wrap>
+		</binding>
+	</action>
+	<action>
+		<name>Calib down</name>
+		<button>1</button>
+		<repeatable>true</repeatable>
+		<binding>
+			<command>property-adjust</command>
+			<property>instrumentation/altimeter/setting-inhg</property>
+				<step>-0.01 </step>
+				<min> 26.28 </min>
+				<max> 31.01 </max>
+			<wrap>false</wrap>
+		</binding>
+	</action>
+</animation>
+
+</PropertyList>

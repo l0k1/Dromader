@@ -1,0 +1,501 @@
+<?xml version="1.0"?>
+<!--
+    #############################################################################
+    #    Copyright 								#
+    #									   	#
+    #    (C) 2005 by Anton Nikolaev aka Xomer - original model for	   	#
+    #	MS Flight Simulator, sounds, visual model and textures.		   	#
+    #     	xomer@yandex.ru						   	#
+    #									   	#
+    #	Model published under GPL with his permission. 			   	#
+    #									   	#
+    #	Original model you can get there: 				   	#
+    #	http://www.avsim.ru/files.phtml?action=download&id=3333		   	#
+    #									   	#
+    #    (C) 2006 by Yurik V. Nikiforoff - port for FGFS, 2d-panel, FDM,   	#
+    #	2d & 3d instruments, animations, systems and over.		   	#
+    #    	yurik@megasignal.com					   	#
+    #                                                                          	#
+    #    This program is free software; you can redistribute it and#or modify  	#
+    #    it under the terms of the GNU General Public License as published by  	#
+    #    the Free Software Foundation; either version 2 of the License, or     	#
+    #    (at your option) any later version.                                   	#
+    #                                                                          	#
+    #    This program is distributed in the hope that it will be useful,       	#
+    #    but WITHOUT ANY WARRANTY; without even the implied warranty of        	#
+    #    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         	#
+    #    GNU General Public License for more details.                          	#
+    #                                                                          	#
+    #    You should have received a copy of the GNU General Public License     	#
+    #    along with this program; if not, write to the                         	#
+    #    Free Software Foundation, Inc.,                                       	#
+    #    59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             	#
+    #############################################################################	  
+    -->
+
+<PropertyList>
+  <!-- Attitude indicator AGK47-B -->
+ <path>agk47-b.ac</path>
+ <!-- Internal instruments lighting -->
+<animation>
+   <type>material</type>
+   <object-name>pitch_needle</object-name>
+   <object-name>roll_needle</object-name>
+   <object-name>ribbon</object-name>
+   <object-name>skid_base</object-name>
+   <object-name>turn</object-name>
+   <object-name>skid</object-name>
+   <object-name>front</object-name>
+    <emission>
+      <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>   0.7 </red>
+      <green> 0.7 </green>
+      <blue>  0.7 </blue>
+    </emission>
+</animation>
+
+<!--Select--> 
+<animation>
+   <type>select</type>
+      <object-name>ribbon_uv</object-name>
+   <condition>
+   	<property>/an2/controls/switches/uv_light</property>
+   </condition>
+</animation>
+<animation>
+  <type>select</type>
+  <object-name>ribbon</object-name>
+  <condition>
+    	<not>
+    	   <property>/an2/controls/switches/uv_light</property>
+  	</not>
+  </condition>
+</animation>
+<animation>
+  <type>select</type>
+  <object-name>skid_base_uv</object-name>
+  <condition>
+    <property>/an2/controls/switches/uv_light</property>
+  </condition>
+</animation>
+<animation>
+  <type>select</type>
+  <object-name>skid_uv</object-name>
+  <condition>
+    <property>/an2/controls/switches/uv_light</property>
+  </condition>
+</animation>
+<animation>
+  <type>select</type>
+  <object-name>turn_uv</object-name>
+  <condition>
+    <property>/an2/controls/switches/uv_light</property>
+  </condition>
+</animation>
+<animation>
+  <type>select</type>
+  <object-name>pitch_needle_uv</object-name>
+  <condition>
+    <property>/an2/controls/switches/uv_light</property>
+  </condition>
+</animation>
+<animation>
+  <type>select</type>
+  <object-name>roll_needle_uv</object-name>
+  <condition>
+    <property>/an2/controls/switches/uv_light</property>
+  </condition>
+</animation>
+<animation>
+  <type>select</type>
+  <object-name>cage_uv</object-name>
+  <condition>
+    <property>/an2/controls/switches/uv_light</property>
+  </condition>
+</animation>
+<animation>
+  <type>select</type>
+  <object-name>horiz_uv</object-name>
+  <condition>
+    <property>/an2/controls/switches/uv_light</property>
+  </condition>
+</animation> 
+<!--Emissive-->  <!--
+<animation>
+  <type>material</type>
+  <object-name>ribbon_uv</object-name>
+  <condition>
+    <property>/an2/controls/switches/uv_light</property>
+  </condition>
+ <emission>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+    <factor-prop>/an2/controls/light/uv-bright</factor-prop>
+  </emission>
+</animation>
+<animation>
+  <type>material</type>
+  <object-name>skid_base_uv</object-name>
+  <condition>
+    <property>/an2/controls/switches/uv_light</property>
+  </condition>
+  <emission>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+    <factor-prop>/an2/controls/light/uv-bright</factor-prop>
+  </emission>
+</animation>
+<animation>
+  <type>material</type>
+  <object-name>skid_uv</object-name>
+  <condition>
+    <property>/an2/controls/switches/uv_light</property>
+  </condition>
+  <emission>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+    <factor-prop>/an2/controls/light/uv-bright</factor-prop>
+  </emission>
+</animation>
+<animation>
+  <type>material</type>
+  <object-name>turn_uv</object-name>
+  <condition>
+    <property>/an2/controls/switches/uv_light</property>
+  </condition>
+  <emission>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+    <factor-prop>/an2/controls/light/uv-bright</factor-prop>
+  </emission>
+</animation>
+<animation>
+  <type>material</type>
+  <object-name>pitch_needle_uv</object-name>
+  <condition>
+    <property>/an2/controls/switches/uv_light</property>
+  </condition>
+  <emission>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+    <factor-prop>/an2/controls/light/uv-bright</factor-prop>
+  </emission>
+</animation>
+<animation>
+  <type>material</type>
+  <object-name>roll_needle_uv</object-name>
+  <condition>
+    <property>/an2/controls/switches/uv_light</property>
+  </condition>
+  <emission>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+    <factor-prop>/an2/controls/light/uv-bright</factor-prop>
+  </emission>
+</animation>
+<animation>
+  <type>material</type>
+  <object-name>horiz_uv</object-name>
+  <condition>
+    <property>/an2/controls/switches/uv_light</property>
+  </condition>
+  <emission>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+    <factor-prop>/an2/controls/light/uv-bright</factor-prop>
+  </emission>
+</animation>
+<animation>
+  <type>material</type>
+  <object-name>cage_uv</object-name>
+  <condition>
+    <property>/an2/controls/switches/uv_light</property>
+  </condition>
+  <emission>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+    <factor-prop>/an2/controls/light/uv-bright</factor-prop>
+  </emission>
+</animation> -->
+
+<!--Pitch ribbon-->
+<animation>
+ <type>rotate</type>
+ <object-name>ribbon</object-name>
+ <property>/instrumentation/attitude-indicator/indicated-pitch-deg</property>
+ <offset-deg>7</offset-deg>
+ <factor>-1.0</factor>
+ <max-deg>35</max-deg>
+ <min-deg>-35</min-deg>
+  <center>
+    <x-m>-0.095</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.0</z-m>
+  </center>
+  <axis>
+    <x>0.0</x>
+    <y>1.0</y>
+    <z>0.0</z>
+  </axis>
+</animation>
+<animation>
+  <type>rotate</type>
+  <object-name>ribbon_uv</object-name>
+  <property>/instrumentation/attitude-indicator/indicated-pitch-deg</property>
+  <offset-deg>7</offset-deg>
+  <factor>-1.0</factor>
+  <max-deg>35</max-deg>
+  <min-deg>-35</min-deg>
+  <center>
+    <x-m>-0.095</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.0</z-m>
+  </center>
+  <axis>
+    <x>0.0</x>
+    <y>1.0</y>
+    <z>0.0</z>
+  </axis>
+</animation>
+
+<!--Needles-->
+<animation>
+  <type>translate</type>
+  <object-name>pitch_needle</object-name>
+  <property>/instrumentation/attitude-indicator/indicated-pitch-deg</property>
+  <factor>0.0014</factor>
+  <offset-m>-0.001</offset-m>
+  <max-m>0.048</max-m>
+  <min-m>-0.048</min-m>
+  <axis>
+    <x>0.0</x>
+    <y>0.0</y>
+    <z>1.0</z>
+  </axis>
+</animation>
+<animation>
+  <type>translate</type>
+  <object-name>roll_needle</object-name>
+  <property>/instrumentation/attitude-indicator/indicated-pitch-deg</property>
+  <factor>0.0014</factor>
+  <max-m>0.048</max-m>
+  <min-m>-0.048</min-m>
+  <axis>
+    <x>0.0</x>
+    <y>0.0</y>
+    <z>1.0</z>
+  </axis>
+</animation>
+<animation>
+  <type>rotate</type>
+  <object-name>roll_needle</object-name>
+  <property>/instrumentation/attitude-indicator/indicated-roll-deg</property>
+  <factor>-1.0</factor>
+  <axis>
+    <x>1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+</animation>
+<!--Needles UV staff-->
+<animation>
+  <type>translate</type>
+  <object-name>pitch_needle_uv</object-name>
+  <property>/instrumentation/attitude-indicator/indicated-pitch-deg</property>
+  <factor>0.0014</factor>
+  <offset-m>-0.001</offset-m>
+  <max-m>0.048</max-m>
+  <min-m>-0.048</min-m>
+  <axis>
+    <x>0.0</x>
+    <y>0.0</y>
+    <z>1.0</z>
+  </axis>
+</animation>
+<animation>
+  <type>translate</type>
+  <object-name>roll_needle_uv</object-name>
+  <property>/instrumentation/attitude-indicator/indicated-pitch-deg</property>
+  <factor>0.0014</factor>
+  <max-m>0.048</max-m>
+  <min-m>-0.048</min-m>
+  <axis>
+    <x>0.0</x>
+    <y>0.0</y>
+    <z>1.0</z>
+  </axis>
+</animation>
+<animation>
+  <type>rotate</type>
+  <object-name>roll_needle_uv</object-name>
+  <property>/instrumentation/attitude-indicator/indicated-roll-deg</property>
+  <factor>-1.0</factor>
+  <axis>
+    <x>1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+</animation>
+<!--Side slip-->
+<animation>
+  <type>rotate</type>
+  <object-name>skid</object-name>
+  <condition>
+    <not>
+     <property>/instrumentation/attitude-indicator/caged-flag</property>
+    </not>
+  </condition>
+  <property>/instrumentation/slip-skid-ball/indicated-slip-skid</property>
+  <factor>-1.2</factor>
+  <max-deg>7</max-deg>
+  <min-deg>-7</min-deg>
+  <center>
+    <x-m>0.0</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.4</z-m>
+  </center>
+  <axis>
+    <x>1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+</animation>
+<!--Side slip with UV -->
+<animation>
+  <type>rotate</type>
+  <object-name>skid_uv</object-name>
+  <condition>
+    <not>
+      <property>/instrumentation/attitude-indicator/caged-flag</property>
+    </not>
+  </condition>
+  <property>/instrumentation/slip-skid-ball/indicated-slip-skid</property>
+  <factor>-1.2</factor>
+  <max-deg>7</max-deg>
+  <min-deg>-7</min-deg>
+  <center>
+    <x-m>0.0</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.4</z-m>
+  </center>
+  <axis>
+    <x>1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+</animation>
+<!--Turn indicator-->
+<animation>
+  <type>rotate</type>
+  <object-name>turn</object-name>
+  <condition>
+    <not>
+      <property>/instrumentation/attitude-indicator/caged-flag</property>
+    </not>
+  </condition>
+  <property>/instrumentation/turn-indicator/indicated-turn-rate</property>
+  <factor>1.2</factor>
+  <max-deg>10</max-deg>
+  <min-deg>-10</min-deg>
+  <center>
+    <x-m>0.0</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.4</z-m>
+  </center>
+  <axis>
+    <x>1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+</animation>
+<!--Turn with UV -->
+<animation>
+  <type>rotate</type>
+  <object-name>turn_uv</object-name>
+  <condition>
+    <not>
+      <property>/instrumentation/attitude-indicator/caged-flag</property>
+    </not>
+  </condition>
+  <property>/instrumentation/turn-indicator/indicated-turn-rate</property>
+  <factor>1.2</factor>
+  <max-deg>10</max-deg>
+  <min-deg>-10</min-deg>
+  <center>
+    <x-m>0.0</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.4</z-m>
+  </center>
+  <axis>
+    <x>1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+</animation>
+
+<!--Horizont-->
+<animation>
+  <type>translate</type>
+  <object-name>horiz</object-name>
+  <property>/instrumentation/attitude-indicator/horizon-offset-deg</property>
+  <factor>0.0008</factor>
+  <axis>
+    <x>0.0</x>
+    <y>0.0</y>
+    <z>1.0</z>
+  </axis>
+</animation>
+<animation>
+  <type>translate</type>
+  <object-name>horiz_uv</object-name>
+  <property>/instrumentation/attitude-indicator/horizon-offset-deg</property>
+  <factor>0.0008</factor>
+  <axis>
+    <x>0.0</x>
+    <y>0.0</y>
+    <z>1.0</z>
+  </axis>
+</animation>
+<!--Arretir-->
+<animation>
+  <type>rotate</type>
+  <object-name>cage</object-name>
+  <property>/instrumentation/attitude-indicator/caged-flag</property>
+  <factor>14</factor>
+  <center>
+    <x-m>0.0</x-m>
+    <y-m>0.08</y-m>
+    <z-m>0.05</z-m>
+  </center>
+  <axis>
+    <x>1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+</animation>
+<animation>
+  <type>rotate</type>
+  <object-name>cage_uv</object-name>
+  <property>/instrumentation/attitude-indicator/caged-flag</property>
+  <factor>14</factor>
+  <center>
+    <x-m>0.0</x-m>
+    <y-m>0.08</y-m>
+    <z-m>0.05</z-m>
+  </center>
+  <axis>
+    <x>1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+  </axis>
+</animation>
+
+</PropertyList>

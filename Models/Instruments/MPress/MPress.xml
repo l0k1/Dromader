@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+	<path>MPress.ac</path>
+
+<animation>
+	<object-name>Fondo</object-name>
+	<object-name>Base</object-name>
+	<object-name>Aguja</object-name>
+	<object-name>Cristal</object-name>
+</animation>
+
+<animation>
+	<type>noshadow</type>
+	<object-name>Cristal</object-name>
+</animation>
+<!--
+<animation>
+	<type>shader</type>
+	<shader>chrome</shader>
+	<texture>glass.png</texture>
+</animation>
+-->
+<animation>
+	<type>material</type>
+	<object-name>Aguja</object-name>
+	<object-name>Fondo</object-name>
+	<emission>
+		<red>  0.7</red>
+		<green>0.7</green>
+		<blue> 0.7</blue>
+			<factor-prop>controls/lighting/instruments-norm</factor-prop>
+	</emission>
+</animation>
+  
+<animation>
+	<type>rotate</type>
+	<object-name>Aguja</object-name>
+	<property>engines/engine[0]/mp-osi</property>
+	<interpolation>
+		<entry><ind> 9.281616 </ind><dep> 115 </dep></entry>
+		<entry><ind> 49.50195 </ind><dep>-210 </dep></entry>
+	</interpolation>
+	<axis>
+		<x>1.0</x>
+		<y>0.0</y>
+		<z>0.0</z>
+    </axis>
+</animation>
+
+</PropertyList>

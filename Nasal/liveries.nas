@@ -1,0 +1,1 @@
+aircraft.livery.init("Aircraft/Dromader/Models/Liveries");

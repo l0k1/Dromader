@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+ <path>VA-1A.ac</path>
+
+<animation>
+	<object-name>Base</object-name>
+	<object-name>Tapa</object-name>
+	<object-name>Tornillos</object-name>
+	<object-name>LCD</object-name>
+	<object-name>LCD0</object-name>
+	<object-name>LCD1</object-name>
+	<object-name>LCD2</object-name>
+	<object-name>LCD3</object-name>
+	<object-name>LCD4</object-name>
+	<object-name>LCD5</object-name>
+	<object-name>LCD6</object-name>
+<!-- <object-name>Luz1</object-name>
+	<object-name>Luz2</object-name> -->
+	<object-name>Switch</object-name>
+	<object-name>SwitchBase1</object-name>
+	<object-name>SwitchBase2</object-name>
+</animation>
+
+<animation>
+	<type>noshadow</type>
+	<object-name>LCD</object-name>
+	<object-name>LCD0</object-name>
+	<object-name>LCD1</object-name>
+	<object-name>LCD2</object-name>
+	<object-name>LCD3</object-name>
+	<object-name>LCD4</object-name>
+	<object-name>LCD5</object-name>
+	<object-name>LCD6</object-name>
+</animation>
+
+ <animation>
+	<type>select</type>
+	<object-name>LCD0</object-name>
+	<condition>
+		<not>
+		<property>controls/electric/battery-switch</property>
+		</not>
+	</condition>
+ </animation>
+ 
+  <animation>
+	<type>select</type>
+	<object-name>LCD1</object-name>
+	<object-name>LCD2</object-name>
+	<object-name>LCD3</object-name>
+	<object-name>LCD4</object-name>
+	<object-name>LCD5</object-name>
+	<object-name>LCD6</object-name>
+	<condition>
+		<property>controls/electric/battery-switch</property>
+	</condition>
+ </animation>
+
+<animation>
+	<type>material</type>
+	<object-name>Face</object-name>
+	<object-name>LCD</object-name>
+	<object-name>LCD1</object-name>
+	<object-name>LCD2</object-name>
+	<object-name>LCD3</object-name>
+	<object-name>LCD4</object-name>
+	<object-name>LCD5</object-name>
+	<object-name>LCD6</object-name>
+	<object-name>LCD0</object-name>
+	<emission>
+		<red>0.7</red>
+		<green>0.7</green>
+		<blue>0.7</blue>
+		<factor-prop>/controls/lighting/instruments-norm</factor-prop>
+	</emission>
+</animation>
+
+<animation>
+	<type>textranslate</type>
+	<object-name>LCD1</object-name>
+    <property>systems/electrical/volts</property>
+		<factor>0.001</factor>
+		<step>100</step>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+        </axis>
+</animation>
+
+<animation>
+	<type>textranslate</type>
+	<object-name>LCD2</object-name>
+    <property>systems/electrical/volts</property>
+		<factor>0.01</factor>
+		<step>10</step>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+        </axis>
+</animation>
+
+<animation>
+	<type>textranslate</type>
+	<object-name>LCD3</object-name>
+    <property>systems/electrical/volts</property>
+        <factor>0.1</factor>
+        <step>1</step>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+        </axis>
+</animation>
+
+<animation>
+	<type>textranslate</type>
+	<object-name>LCD5</object-name>
+    <property>systems/electrical/volts</property>
+		<factor>1</factor>
+		<step>0.1</step>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+        </axis>
+</animation>
+
+</PropertyList>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ASI (Air Speed Indicator) based on PZL PR-400 model, Dromader version
+http://www.pzl.com.pl/pl/produkty/osprzet_lotniczy/pilotazowo-nawigacyjne/predkosciomierze/pr-400s-a.html
+Author: Pavel Cueto
+License: GPL
+-->
+
+<PropertyList>
+
+  <path>PR-400.ac</path>
+
+<animation>
+	<object-name>Aguja</object-name>
+	<object-name>Fondo</object-name>
+	<object-name>Base</object-name>
+	<object-name>Cristal</object-name>
+	<object-name>Tornillos</object-name>
+</animation>
+<!--
+<animation>
+	<type>shader</type>
+	<shader>chrome</shader>
+	<texture>Aircraft/Generic/Effects/glass_shader.png</texture>
+	<object-name>Cristal</object-name>
+</animation>
+-->
+<animation>
+	<type>noshadow</type>
+	<object-name>Cristal</object-name>
+</animation>
+
+<animation>
+	<type>material</type>
+	<object-name>Aguja</object-name>
+	<object-name>Fondo</object-name>
+	<emission>
+		<red>  0.7</red>
+		<green>0.7</green>
+		<blue> 0.7</blue>
+			<factor-prop>controls/lighting/instruments-norm</factor-prop>
+	</emission>
+</animation>
+
+  <animation>
+	<type>rotate</type>
+	<object-name>Aguja</object-name>
+	<property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
+	<interpolation>
+		<entry><ind>   0 </ind><dep>   0 </dep></entry>
+		<entry><ind>  30 </ind><dep>  68 </dep></entry>
+		<entry><ind>  40 </ind><dep> 114 </dep></entry>
+		<entry><ind>  50 </ind><dep> 160 </dep></entry>
+		<entry><ind>  60 </ind><dep> 202 </dep></entry>
+		<entry><ind>  70 </ind><dep> 241 </dep></entry>
+		<entry><ind>  80 </ind><dep> 280 </dep></entry>
+		<entry><ind>  90 </ind><dep> 310 </dep></entry>
+		<entry><ind> 100 </ind><dep> 345 </dep></entry>
+		<entry><ind> 125 </ind><dep> 425 </dep></entry>
+		<entry><ind> 150 </ind><dep> 502 </dep></entry>
+		<entry><ind> 175 </ind><dep> 573 </dep></entry>
+		<entry><ind> 200 </ind><dep> 644 </dep></entry>
+	</interpolation>
+	<center>
+		<x-m> 0 </x-m>
+		<y-m> 0 </y-m>
+		<z-m> 0 </z-m>
+	</center>
+	<axis>
+		<x> -1 </x>
+		<y>  0 </y>
+		<z>  0 </z>
+	</axis>
+</animation>
+
+</PropertyList>
