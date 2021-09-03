@@ -20,6 +20,25 @@
           <script>Dromader.immat_dialog.toggle()</script>
         </binding>
       </item>
+      <item>
+        <label>Toggle Pesticide/Water</label>
+        <binding>
+          <command>property-toggle</command>
+          <property>controls/dropsystem</property>
+        </binding> 
+        <binding>
+          <command>nasal</command>
+          <script>
+            <![CDATA[
+            if (getprop("controls/dropsystem")) {
+              screen.log.write("Dropping pesticide");
+            } else {
+              screen.log.write("Dropping water");
+            }
+            ]]>
+            </script>
+        </binding> 
+      </item>
     </menu>
   </default>
 

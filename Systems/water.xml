@@ -18,7 +18,7 @@
 
 		<switch name="trash/pesttrigger">
 			<default value="0"/>
-			<test logic="AND" value="-2">
+			<test logic="AND" value="-0.2">
 				/controls/armament/trigger gt 0.9
 				/controls/dropsystem eq 1
 				/payload/weight[2]/weight-lb gt 3
