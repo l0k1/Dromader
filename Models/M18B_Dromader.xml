@@ -194,7 +194,7 @@
  </model>
  
 <!-- Direccional -->
- <model>
+<!-- <model>
 	<name>HDG</name>
 	<path>Aircraft/Dromader/Models/Instruments/HDG/hdg.xml</path>
 	<offsets>
@@ -204,7 +204,7 @@
 		<pitch-deg>-20</pitch-deg>
 		<heading-deg>15</heading-deg>
 	</offsets>
- </model>
+ </model>-->
  
 <!-- Cronometro -->
  <model>
@@ -218,6 +218,38 @@
 		<heading-deg>15</heading-deg>
 	</offsets>
  </model>
+
+<!-- Comm 1 -->
+ <model>
+	<name>KFS-598-0</name>
+	<path>Aircraft/Dromader/Models/Instruments/KFS-598/kfs598.xml</path>
+	<offsets>
+		<x-m>1.41512</x-m>
+		<y-m>-0.504775</y-m>
+		<z-m>0.80513</z-m>
+		<pitch-deg>-20</pitch-deg>
+		<heading-deg>15</heading-deg>
+	</offsets>
+ </model>
+
+<!-- Comm 2 -->
+ <model>
+	<name>KFS-598-1</name>
+	<path>Aircraft/Dromader/Models/Instruments/KFS-598-1/kfs598-1.xml</path>
+	<offsets>
+		<x-m>1.40067</x-m>
+		<y-m>-0.45069</y-m>
+		<z-m>0.80513</z-m>
+		<pitch-deg>-20</pitch-deg>
+		<heading-deg>15</heading-deg>
+	</offsets>
+ </model>
+
+ <!-- tacan at
+ 1.43676
+ -0.498557
+ 0.742207
+-->
  
 <!-- Panel Derecho -->
 
