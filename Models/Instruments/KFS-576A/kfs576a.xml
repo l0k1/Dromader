@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <path>kfs-576a.ac</path>
+
+  <animation>
+    <type>material</type>
+    <object-name>kfs576aLCD</object-name>
+    <emission>
+      <red>   0.45 </red>
+      <green> 0.25 </green>
+      <blue>  0.25 </blue>
+      <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+    </emission>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>kfs576aPwrKnob</object-name>
+    <action>
+      <button>0</button>
+      <button>1</button>
+      <button>2</button>
+      <button>3</button>
+      <button>4</button>
+      <binding>
+          <command>nasal</command>
+          <script>kfs576a.power();</script>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>kfs576aIdent</object-name>
+    <action>
+      <button>0</button>
+      <button>1</button>
+      <button>2</button>
+      <button>3</button>
+      <button>4</button>
+      <binding>
+          <command>property-toggle</command>
+          <property>/instrumentation/transponder/inputs/ident-btn</property>
+      </binding>
+      <mod-up>
+        <binding>
+            <command>property-toggle</command>
+            <property>/instrumentation/transponder/inputs/ident-btn</property>
+        </binding>
+      </mod-up>
+    </action>
+  </animation>
+
+    <animation>
+          <type>knob</type>
+          <object-name>kfs576aFunctionSwitch</object-name>
+          <property>/instrumentation/transponder/inputs/function-pos</property>
+          <factor>10</factor>
+          <drag-scale-px>30</drag-scale-px>
+          <center>
+              <x-m> 0.01721</x-m>
+              <y-m> 0.00708</y-m>
+              <z-m>-0.01096</z-m>
+          </center>
+          <axis>
+              <x>1</x>
+              <y>0</y>
+              <z>0</z>
+          </axis>
+          <action>
+            <binding>
+                <command>property-adjust</command>
+                <property>/instrumentation/transponder/inputs/function-pos</property>
+                <factor>-1.0</factor>
+            </binding>
+          </action>
+          <increase>
+            <binding>
+                <command>nasal</command>
+                <script>kfs576a.cycle_modes(1);</script>
+            </binding>
+          </increase>
+          <decrease>
+            <binding>
+                <command>nasal</command>
+                <script>kfs576a.cycle_modes(-1);</script>
+            </binding>
+          </decrease>
+      </animation>
+
+      <animation>
+            <type>knob</type>
+            <object-name>kfs576aCodeSelect</object-name>
+                <property>/instrumentation/transponder/inputs/code-pos</property>
+            <shift-repeat>2</shift-repeat>
+            <factor>10</factor>
+            <drag-scale-px>30</drag-scale-px>
+            <center>
+                <x-m> 0.01721</x-m>
+                <y-m> 0.00708</y-m>
+                <z-m>-0.01096</z-m>
+            </center>
+            <axis>
+                <x>1</x>
+                <y>0</y>
+                <z>0</z>
+            </axis>
+            <action>
+              <binding>
+                  <command>property-adjust</command>
+                  <property>/instrumentation/transponder/inputs/code-pos</property>
+                  <factor>-1.0</factor>
+              </binding>
+            </action>
+            <increase>
+              <binding>
+                  <command>nasal</command>
+                  <script>kfs576a.cycle_number(1);</script>
+              </binding>
+            </increase>
+            <decrease>
+              <binding>
+                  <command>nasal</command>
+                  <script>kfs576a.cycle_number(-1);</script>
+              </binding>
+            </decrease>
+            <shift-increase>
+              <binding>
+                <command>nasal</command>
+                <script>kfs576a.code_selector_press(1)</script>
+              </binding>
+            </shift-increase>
+            <shift-decrease>
+              <binding>
+                <command>nasal</command>
+                <script>kfs576a.code_selector_press(-1)</script>
+              </binding>
+            </shift-decrease>
+        </animation>
+
+</PropertyList>

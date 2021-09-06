@@ -245,11 +245,18 @@
 	</offsets>
  </model>
 
- <!-- tacan at
- 1.43676
- -0.498557
- 0.742207
--->
+<!-- XPDR -->
+ <model>
+	<name>KFS-576A</name>
+	<path>Aircraft/Dromader/Models/Instruments/KFS-576A/kfs576a.xml</path>
+	<offsets>
+		<x-m>1.43676</x-m>
+		<y-m>-0.498557</y-m>
+		<z-m>0.742207</z-m>
+		<pitch-deg>-20</pitch-deg>
+		<heading-deg>15</heading-deg>
+	</offsets>
+ </model>
  
 <!-- Panel Derecho -->
 
