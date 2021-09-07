@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <path>TankQty.ac</path>
+
+  <animation>
+    <type>material</type>
+    <object-name>tankqtyLCD</object-name>
+    <emission>
+      <red>   0.45 </red>
+      <green> 0.45 </green>
+      <blue>  0.45 </blue>
+      <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+    </emission>
+  </animation>
+
+
+</PropertyList>

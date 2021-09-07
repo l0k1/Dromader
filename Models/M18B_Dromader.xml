@@ -165,6 +165,19 @@
 	</offsets>
 </model>
 
+ <model>
+ 	<name>TANKQTY</name>
+	<path>Aircraft/Dromader/Models/Instruments/TankQty/tankqty.xml</path>
+	<offsets>
+		<x-m>1.30108</x-m>
+		<y-m>-0.17</y-m>
+		<z-m>0.995</z-m>
+		<heading-deg>7</heading-deg>
+	</offsets>
+</model>
+
+
+
 <!-- Panel Izquierdo -->
 
 <!-- Trim elevador -->

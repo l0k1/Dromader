@@ -165,6 +165,7 @@
 	<kfs598><file>Aircraft/Dromader/Models/Instruments/KFS-598/kfs598.nas</file></kfs598>
 	<kfs5981><file>Aircraft/Dromader/Models/Instruments/KFS-598-1/kfs598-1.nas</file></kfs5981>
 	<kfs576a><file>Aircraft/Dromader/Models/Instruments/KFS-576A/kfs576a.nas</file></kfs576a>
+	<tankqty><file>Aircraft/Dromader/Models/Instruments/TankQty/TankQty.nas</file></tankqty>
 </nasal>
 
 <limits>
