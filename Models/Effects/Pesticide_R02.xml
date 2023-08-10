@@ -22,10 +22,10 @@
 		<and>
 			<property>controls/armament/trigger</property>
 			<property>controls/dropsystem</property>
-			<greater-than>
-				<property>payload/weight[2]/weight-lb</property>
-				<value>10</value>
-			</greater-than>
+			<less-than>
+				<property>fdm/jsbsim/systems/pestflow</property>
+				<value>0</value>
+			</less-than>
 		</and>
 	</condition>
 

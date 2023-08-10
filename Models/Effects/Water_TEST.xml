@@ -23,10 +23,10 @@
 			<not>
 				<property>controls/dropsystem</property>
 			</not>
-			<greater-than>
-				<property>payload/weight[2]/weight-lb</property>
-				<value>10</value>
-			</greater-than>
+			<less-than>
+				<property>fdm/jsbsim/systems/waterflow</property>
+				<value>0</value>
+			</less-than>
 		</and>
 	</condition>
 

@@ -150,6 +150,9 @@
 		<cabin-lights-pwr>false</cabin-lights-pwr>
 	</circuit-breakers>
 	<dropsystem type="bool">false</dropsystem>
+	<armament>
+		<trigger type="bool">false</trigger>
+	</armament>
 </controls>
 
 
@@ -318,11 +321,6 @@
 			<command>property-assign</command>
 			<property>controls/armament/trigger</property>
 			<value>true</value>
-		</binding>
-		<binding>
-			<command>property-assign</command>
-			<property>fdm/jsbsim/inertia/pointmass-weight-lbs[2]</property>
-			<value>0</value>
 		</binding>
 		<mod-up>
 			<binding>

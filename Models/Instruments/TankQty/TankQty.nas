@@ -6,12 +6,12 @@ var cw_prop = props.globals.getNode("payload/weight[2]/weight-lb");
 
 var perc = 0;
 
-var display_timer = maketimer(1,func() {
+var display_timer = maketimer(0.25,func() {
   perc = cw_prop.getValue() / mw_prop.getValue();
   perc = perc * 100;
   QTY_DISPLAY.percent.setText(sprintf("%03i",perc));
 });
-display_timer.restart(1);
+display_timer.restart(0.25);
 
 var TANKQTYLCDDISPLAY = {
 
